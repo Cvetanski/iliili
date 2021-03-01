@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Author\AuthorController;
 use App\Http\Controllers\BookController\BookController;
 use App\Http\Controllers\CKEditorController\CKEditorController;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,7 @@ Route::get('logout',[AdminController::class,'logout']);
 Route::get('admin-profile',[AdminController::class,'adminProfile']);
 Route::post('new-password',[AdminController::class,'newPassword']);
 
-
+//About Routes
 Route::get('/add-about',[AboutController::class,'index'])->middleware(['auth'])->name('add-about');
 //Route::get('/',[AboutController::class,'index'])->middleware(['auth'])->name('all_about');
 Route::post('/save-about',[AboutController::class,'saveAbout'])->middleware(['auth'])->name('save-about');
@@ -44,14 +45,28 @@ Route::get('/delete-about/{id}',[AboutController::class,'deleteAbout'])->name('d
 Route::get('/all-about',[AboutController::class,'allAbout'])->middleware(['auth'])->name('all-about');
 
 
+//Book Routes
+Route::middleware(['auth'])->group(function() {
+    Route::get('/add-book', [BookController::class, 'index'])->name('add-book');
+    Route::post('/save-book', [BookController::class, 'saveBook'])->name('save-book');
+    Route::get('/all-book', [BookController::class, 'allBook'])->name('all-book');
+    Route::get('/unactive-book/{id}', [BookController::class, 'unactiveBook'])->name('unactive-book');
+    Route::get('/active-book/{id}', [BookController::class, 'activeBook'])->name('active-book');
+    Route::get('/edit-book/{id}', [BookController::class, 'editBook'])->name('edit-book');
+    Route::post('/update-book/{id}', [BookController::class, 'updateBook'])->name('update-book');
+    Route::get('/delete-book/{id}', [BookController::class, 'deleteBook'])->name('delete-book');
+});
 
-Route::get('add-book',[BookController::class,'index'])->middleware(['auth'])->name('add-book');
-Route::post('save-book',[BookController::class,'saveBook'])->middleware(['auth'])->name('save-book');
-Route::get('all-book',[BookController::class,'allBook'])->middleware(['auth'])->name('all-book');
-//Route::get('unactive-book/{id}',[BookController::class,'unactiveBook'])->middleware(['auth'])->name('unactive-book');
-Route::get('edit-book/{id}',[BookController::class,'editBook'])->middleware(['auth'])->name('edit-book');
-Route::get('/delete-book/{id}',[BookController::class,'deleteBook'])->middleware(['auth'])->name('delete-book');
-//Route::get('/active-book/{id}',[BookController::class,'activeBook'])->middleware(['auth'])->name('active-about');
-//Route::get('unactive-book/{id}',[BookController::class,])
+
+//Author Routes
+Route::middleware(['auth'])->group(function(){
+  Route::get('add-author',[AuthorController::class,'index'])->name('add-author');
+  Route::post('save-author',[AuthorController::class,'saveAuthor'])->name('save-author');
+  Route::get('all-author',[AuthorController::class,'allAuthor'])->name('all-author');
+  Route::get('edit-author',[AuthorController::class,'editAuthor'])->name('edit-author');
+  Route::post('update-author',[AuthorController::class,'updateAuthor'])->name('update-author');
+  Route::post('delete-author',[AuthorController::class,'deleteAuthor'])->name('delete-author');
+});
+
 
 Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');

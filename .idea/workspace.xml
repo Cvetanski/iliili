@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6597ca0b-2e79-4ff1-b178-af2ec1fb0de3" name="Default Changelist" comment="" />
+    <list default="true" id="6597ca0b-2e79-4ff1-b178-af2ec1fb0de3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Author/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Author/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BookController/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BookController/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/add_author.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/add_author.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +16,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -164,7 +173,8 @@
       <workItem from="1614068459903" duration="8131000" />
       <workItem from="1614080338983" duration="11648000" />
       <workItem from="1614152010307" duration="14657000" />
-      <workItem from="1614238517707" duration="12395000" />
+      <workItem from="1614238517707" duration="13516000" />
+      <workItem from="1614584415613" duration="10408000" />
     </task>
     <servers />
   </component>
@@ -184,17 +194,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1614068456076" />
-    <state x="724" y="243" key="NewPhpClassDialog" timestamp="1614260754005">
+    <state x="724" y="243" key="NewPhpClassDialog" timestamp="1614593413471">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="724" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614260754005" />
+    <state x="724" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614593413471" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1614154670795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614154670795" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614259957173">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1614593161260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614259957173" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614593161260" />
   </component>
 </project>
