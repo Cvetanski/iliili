@@ -20,42 +20,15 @@
                             <input type="hidden" name="section_id" value="1">
                         </div>
                     </div>
-{{--                    <div class="control-group">--}}
-{{--                        <div class="controls">--}}
-{{--                            <input type="hidden" name="user_id" <?php--}}
-{{--                            $allUsers=DB::table('users')--}}
-{{--                                ->where('id',1)--}}
-{{--                                ->orWhere('id',3)--}}
-{{--                                ->get();--}}
-{{--                            foreach ($allUsers as $user){?>--}}
-{{--                            <option  value="{{$user->id}}"></option>--}}
-{{--                            <?php } ?>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="inputName">Име на книгата</label>
+                            <label for="inputName">Наслов</label>
                             <input type="text" name="title" id="title" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="inputDescription">Опис за книгата</label>
+                            <label for="inputDescription">Опис</label>
                             <textarea  name="description" id="description" class="ckeditor" rows="4"></textarea>
                         </div>
-
-{{--                        <div class="form-group">--}}
-{{--                            <label for="inputStatus"></label>--}}
-{{--                            <select class="form-control custom-select" name="language_id">--}}
-{{--                                <option></option>--}}
-{{--                                <?php--}}
-{{--                                use Illuminate\Support\Facades\DB;$allCategory=DB::table('categories')--}}
-{{--                                    ->where('id',1)--}}
-{{--                                    ->orWhere('id',2)--}}
-{{--                                    ->get();--}}
-{{--                                foreach ($allCategory as $category){?>--}}
-{{--                                <option  value="{{$category->category}}">{{$category->category}}</option>--}}
-{{--                                <?php } ?>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
                         <div class="form-group">
                             <label class="control-label" for="fileInput">Прикачи документ</label>
                             <div class="controls">

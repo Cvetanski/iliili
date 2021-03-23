@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Http\Controllers\About;
-
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
@@ -18,21 +16,6 @@ class AboutController extends Controller
         {
             return view('admin.add_about');
         }
-
-//    public function saveAbout(Request $request)
-//    {
-//        $data = array();
-//        $data['id'] = $request->get('id');
-//        $data['title'] = $request->get('title');
-//        $data['description'] = $request->get('description');
-//        $data['publication_status'] = $request->get('publication_status');
-//        $data['section_id'] = $request->get('section_id');
-//
-//        DB::table('content')->insert($data);
-//        Session::put('message', 'Содржината е успешно додадена !');
-//
-//        return redirect::to('dashboard');
-//    }
 
        public function saveAbout(Request $request)
        {
@@ -109,17 +92,5 @@ class AboutController extends Controller
 
             return redirect::to('all-about');
         }
-
-//
-//    public function updateAbout(Request $request, About $about)
-//        {
-//
-//        $about->title = $request->title;
-//        $about->description = $request->description;
-//
-//        $about->update();
-//
-//        return redirect::to('all_about')->with('message', 'Содржината е успешно ажурирана ! ! ! ');
-//        }
 
 }

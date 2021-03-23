@@ -136,7 +136,7 @@ to get the desired effect
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{URL::to('/all-author')}}" class="nav-link">
+                                <a href="{{URL::to('/all-category')}}" class="nav-link">
                                     <i class="far fa-list-alt nav-icon"></i>
                                     <p>Види ги сите категории</p>
                                 </a>
@@ -176,15 +176,38 @@ to get the desired effect
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{URL::to('/add-news')}}" class="nav-link">
+                                <a href="{{URL::to('/add-coupon')}}" class="nav-link">
                                     <i class="nav-icon fas fa-edit"></i>
                                     <p>Додели Купон</p><span class="right badge badge-danger" style="margin-right: -16px">Додади</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{URL::to('/all-news')}}" class="nav-link">
+                                <a href="{{URL::to('/all-coupon')}}" class="nav-link">
                                     <i class="far fa-list-alt nav-icon"></i>
                                     <p>Сите Купони</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class=""></i>
+                            <p>
+                                Достава
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{URL::to('/add-delivery')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>Додади Достава</p><span class="right badge badge-danger" style="margin-right: -16px">Додади</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{URL::to('/all-delivery')}}" class="nav-link">
+                                    <i class="far fa-list-alt nav-icon"></i>
+                                    <p>Види ги сите градови </p>
                                 </a>
                             </li>
                         </ul>
@@ -260,17 +283,18 @@ to get the desired effect
 
 
 <script type="text/javascript" src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js')}}"></script>
-<script>
-    $(document).on("click", "#delete", function (e){
-        e.preventDefault();
-        var link = $(this).attr("route");
-        bootbox.confirm("Дали сте сигурни дека сакате да ја избришите оваа содржина?",function (confirmed){
-            if(confirmed){
-                window.location.href = link;
-            }
-        });
-    });
-</script>
+
+{{--<script>--}}
+{{--    $(document).on("click", "#delete", function (e){--}}
+{{--        e.preventDefault();--}}
+{{--        var link = $(this).attr("route");--}}
+{{--        bootbox.confirm("Дали сте сигурни дека сакате да ја избришите оваа содржина?",function (confirmed){--}}
+{{--            if(confirmed){--}}
+{{--                window.location.href = link;--}}
+{{--            }--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 
 </body>
 </html>

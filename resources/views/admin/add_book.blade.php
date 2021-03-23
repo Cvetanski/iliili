@@ -8,11 +8,11 @@
                     <div class="card-header">
                         <h3 class="card-title">Додади Содржина</h3>
                         <form class="form-horizontal" action="{{asset('/save-book')}}" method="post" enctype="multipart/form-data">
-                            {{ csrf_field()}}
+                            {{csrf_field()}}
                             <fieldset>
                                 <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                        <i class="fas fa-minus"></i></button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse"></button>
+                                    <i class="fas fa-minus"></i>
                                 </div>
                     </div>
                     <div class="control-group">
@@ -82,10 +82,16 @@
                                 <label for="inputQuantity">Количина</label>
                                 <input type="text" name="quantity" id="quantity" class="form-control">
                             </div>
+                            <div class="form-group">
+                                <label class="control-label" for="fileInput">Прикачи Слика</label>
+                                <div class="input-group">
+                                    <input class="input-file uniform_on" name="photo" id="photo" type="file" value="{{old('photo')}}">
+                                </div>
+                            </div>
                         <div class="form-group">
                             <label class="control-label" for="fileInput">Прикачи документ</label>
-                            <div class="controls">
-                                <input class="input-file uniform_on" name="file" id="file" type="file">
+                            <div class="input-group">
+                                <input class="input-file uniform_on" name="file" id="file" type="file" value="{{old('file')}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -101,7 +107,7 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <button type="submit" class="btn btn-primary" style="margin-left: 12px">Додади содржина</button>
+                <button type="submit" class="btn btn-primary" style="margin-left: 33px">Додади содржина</button>
             </div>
         </div>
     </section>

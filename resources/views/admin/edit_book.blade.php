@@ -31,19 +31,15 @@
                             <div class="form-group">
                                 <label for="inputCategory">Одберете категорија</label>
                                 <select class="form-control custom-select"  id="categories" name="category_id">
-                                    <option></option>
-                                    <?php
-                                     $allCategory=DB::table('categories')
-                                        ->get();
-                                    foreach ($allCategory as $category){?>
-                                    <option  value="{{$category->id}}">{{$category->category}}</option>
-                                    <?php } ?>
+                                    <option</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}" {{(($product->brand_id==$brand->id)? 'selected':'')}}>{{$brand->title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="inputOrigin">Одбери потекло</label>
                                 <select class="form-control custom-select" id="origin" name="origin_id">
-                                    <option></option>
                                     <?php
                                     $allOrigins=DB::table('origin')
                                         ->get();
@@ -55,7 +51,6 @@
                             <div class="form-group">
                                 <label for="inputAuthors">Одбери Автор</label>
                                 <select class="form-control custom-select" name="author_id">
-                                    <option></option>
                                     <?php
                                     $allAuthors=DB::table('authors')
                                         ->get();
@@ -80,6 +75,12 @@
                                 <label class="control-label" for="fileInput">Прикачи документ</label>
                                 <div class="controls">
                                     <input class="input-file uniform_on" name="file" id="file" type="file" value="{{$bookInfo->file}}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="fileInput">Прикачи документ</label>
+                                <div class="controls">
+                                    <input class="input-file uniform_on" name="photo" id="photo" type="photo" value="{{$bookInfo->photo}}">
                                 </div>
                             </div>
                             <div class="form-group">

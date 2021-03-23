@@ -4,7 +4,16 @@ use App\Http\Controllers\About\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Author\AuthorController;
 use App\Http\Controllers\BookController\BookController;
+use App\Http\Controllers\Cart\CartController;
+use App\Http\Controllers\Categories\CategoriesController;
 use App\Http\Controllers\CKEditorController\CKEditorController;
+use App\Http\Controllers\Coupon\CouponController;
+use App\Http\Controllers\Delivery\DeliveryController;
+use App\Http\Controllers\Frontend\FrontendController;
+use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Product\ProductController;
+use App\Http\Controllers\Shop\ShopController;
+use App\Http\Controllers\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,13 +69,65 @@ Route::middleware(['auth'])->group(function() {
 
 //Author Routes
 Route::middleware(['auth'])->group(function(){
-  Route::get('add-author',[AuthorController::class,'index'])->name('add-author');
-  Route::post('save-author',[AuthorController::class,'saveAuthor'])->name('save-author');
-  Route::get('all-author',[AuthorController::class,'allAuthor'])->name('all-author');
-  Route::get('edit-author',[AuthorController::class,'editAuthor'])->name('edit-author');
-  Route::post('update-author',[AuthorController::class,'updateAuthor'])->name('update-author');
-  Route::post('delete-author',[AuthorController::class,'deleteAuthor'])->name('delete-author');
+  Route::get('/add-author',[AuthorController::class,'index'])->name('add-author');
+  Route::post('/save-author',[AuthorController::class,'saveAuthor'])->name('save-author');
+  Route::get('/all-author',[AuthorController::class,'allAuthor'])->name('all-author');
+  Route::get('/edit-author/{id}',[AuthorController::class,'editAuthor'])->name('edit-author');
+  Route::post('/update-author/{id}',[AuthorController::class,'updateAuthor'])->name('update-author');
+  Route::get('delete-author/{id}',[AuthorController::class,'deleteAuthor'])->name('delete-author');
 });
 
 
+//Categories Routes
+Route::middleware(['auth'])->group(function(){
+    Route::get('/add-category',[CategoriesController::class,'index'])->name('add-category');
+    Route::post('/save-category',[CategoriesController::class,'saveCategory'])->name('save-category');
+    Route::get('/all-category',[CategoriesController::class,'allCategory'])->name('all-category');
+    Route::get('/edit-category/{id}',[CategoriesController::class,'editCategory'])->name('edit-category');
+    Route::post('/update-category/{id}',[CategoriesController::class,'updateCategory'])->name('update-category');
+    Route::get('delete-category/{id}',[CategoriesController::class,'deleteCategory'])->name('delete-category');
+});
+
+
+//Coupon Routes
+Route::get('/add-coupon',[CouponController::class,'index'])->name('add-coupon');
+Route::post('/save-coupon',[CouponController::class,'store'])->name('save-coupon');
+Route::get('all-coupon',[CouponController::class,'allCoupon'])->middleware(['auth'])->name('all-coupon');
+Route::get('edit-coupon/{id}',[CouponController::class,'edit'])->middleware(['auth'])->name('edit-coupon');
+Route::get('delete-coupon/{id}',[CouponController::class,'delete'])->middleware(['auth'])->name('delete-coupon');
+Route::post('update-coupon/{id}',[CouponController::class,'update'])->middleware(['auth'])->name('update-coupon');
+
+
+//Delivery Routes
+Route::get('add-delivery',[DeliveryController::class,'index'])->name('add-delivery');
+Route::post('/save-delivery',[DeliveryController::class,'store'])->name('save-delivery');
+Route::get('all-delivery',[DeliveryController::class,'allDelivery'])->name('all-delivery');
+Route::get('edit-delivery/{id}',[DeliveryController::class,'edit'])->name('edit-delivery');
+Route::post('update-delivery/{id}',[DeliveryController::class,'update'])->name('update-delivery');
+Route::get('delete-delivery/{id}',[DeliveryController::class,'delete'])->name('delete-delivery');
+
+
+
+//FRONTEND ROUTES
+
+
+
+//User Routes
+Route::get('login-page',[UserController::class,'index'])->name('login-page');
+Route::post('create-account',[UserController::class,'register'])->name('create-account');
+Route::post('login-user',[UserController::class,'login'])->name('login-user');
+
+Route::get('shop',[ShopController::class,'index'])->name('shop');
+Route::get('product-detalis',[ProductController::class,'index'])->name('product-detalis');
+
+
+
+
+//Cart Routes
+Route::post('add-to-cart',[CartController::class,'addToCart'])->name('addToCart');
+Route::get('cart',[CartController::class,'index'])->name('cart');
+
+
+
+//CkEditorController
 Route::post('ckeditor/image_upload', [CKEditorController::class, 'upload'])->name('upload');

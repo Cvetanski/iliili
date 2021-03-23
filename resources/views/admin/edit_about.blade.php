@@ -14,18 +14,6 @@
                                         <i class="fas fa-minus"></i></button>
                                 </div>
                     </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <input type="hidden" name="user_id" <?php
-                            use Illuminate\Support\Facades\DB;$allUsers=DB::table('users')
-                                ->where('id',2)
-                                ->orWhere('id',3)
-                                ->get();
-                            foreach ($allUsers as $user){?>
-                            <option  value="{{$user->id}}"></option>
-                            <?php } ?>
-                        </div>
-                    </div>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="inputName">Име на содржината</label>

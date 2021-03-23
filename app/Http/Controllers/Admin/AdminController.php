@@ -3,7 +3,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\Http\Controllers\Controller;
 
 use App\Models\User;
@@ -47,7 +46,7 @@ class AdminController extends  Controller
         if(!md5($currentPassword,$loggedUser->password)){
             return back()->with('error', 'Вашата тековна лозинка е погрешна!!!');
         }
-    
+
         $user = Auth::user();
         $user->password = Hash::make( $request->get('newPassword'));
         $user->save();

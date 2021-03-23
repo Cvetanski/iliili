@@ -1,6 +1,5 @@
 @extends('admin.admin_layout')
 @section('admin_content')
-
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -15,25 +14,14 @@
                                         <i class="fas fa-minus"></i></button>
                                 </div>
                     </div>
-                    <div class="control-group">
-                        <div class="controls">
-                            <input type="hidden" name="section_id" value="1">
-                        </div>
-                    </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="inputName">Име на Авторот</label>
+                            <label for="inputName">Име на автор</label>
                             <input type="text" name="name" id="name" class="form-control">
                         </div>
-                            <div class="form-group">
-                                <label for="inputName">Презиме на авторот</label>
-                                <input type="text" name="surname" id="surname" class="form-control">
-                            </div>
                         <div class="form-group">
-                            <label class="control-label" for="textarea2">Објави ја содржината</label>
-                            <div class="controls">
-                                <input type="checkbox" name="publication_status" value="1">
-                            </div>
+                            <label for="inputSurname">Презиме на автор</label>
+                            <input type="text" name="surname" id="surname" class="form-control">
                         </div>
                     </div>
                 </div>

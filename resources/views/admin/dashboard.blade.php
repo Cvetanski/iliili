@@ -37,6 +37,7 @@ to get the desired effect
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{URL::to('/dashboard')}}" class="nav-link">Почетна</a>
+                <a href="{{URL::to('/logout')}}"><i class="halflings-icon off"></i> Одјави се </a>
             </li>
         </ul>
     </nav>
@@ -59,7 +60,7 @@ to get the desired effect
                     <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="{{asset('admin-profile')}}" class="d-block">{{\Illuminate\Support\Facades\Session::get('name','surname')}}</a>
+                    <a href="{{asset('admin-profile')}}" class="d-block">{{\Illuminate\Support\Facades\Session::get('name')}}</a>
                 </div>
             </div>
 
@@ -171,15 +172,38 @@ to get the desired effect
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{URL::to('/add-news')}}" class="nav-link">
+                                <a href="{{URL::to('/add-coupon')}}" class="nav-link">
                                     <i class="nav-icon fas fa-edit"></i>
                                     <p>Додели Купон</p><span class="right badge badge-danger" style="margin-right: -16px">Додади</span>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{URL::to('/all-news')}}" class="nav-link">
+                                <a href="{{URL::to('/all-coupon')}}" class="nav-link">
                                     <i class="far fa-list-alt nav-icon"></i>
                                     <p>Види ги сите купони</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class=""></i>
+                            <p>
+                                Достава
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{URL::to('/add-delivery')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>Додади Достава</p><span class="right badge badge-danger" style="margin-right: -16px">Додади</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{URL::to('/all-delivery')}}" class="nav-link">
+                                    <i class="far fa-list-alt nav-icon"></i>
+                                    <p>Види ги сите градови </p>
                                 </a>
                             </li>
                         </ul>
