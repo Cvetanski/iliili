@@ -47,18 +47,18 @@
                             <td>@foreach($origins as $origin) {{$origin->origin}} @endforeach</td>
                             <td>@foreach($authors as $author) {{$author->name}} {{$author->surname}} @endforeach</td>
                             <td class="center">{{$book->year}}</td>
+                            <td style="text-align: center;"><img src="{{url('images/',$book->photo)}}"  class="img-fluid zoomIn" alt="{{$book->photo}}" width="50"></td>
 {{--                            <td class="center">{{$book->photo}}</td>--}}
-                            <td>
-                                @if($book->photo)
-                                    @php
-                                        $photo=explode(',',$book->photo);
-                            // dd($photo);
-                                    @endphp
-                                    <img src="{{$photo[0]}}" class="img-fluid zoom" style="max-width:80px" alt="{{$book->photo}}">
-                                @else
-                                    <img src="{{asset('/storage/product/')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">
-                                @endif
-                            </td>
+{{--                            <td>--}}
+{{--                                @if($book->photo)--}}
+{{--                                    @php--}}
+{{--                                        $photo=explode(',',$book->photo);--}}
+{{--                                    @endphp--}}
+{{--                                    <img src="{{url('images/')}}" class="img-fluid zoom" style="max-width:80px" alt="{{$book->photo}}">--}}
+{{--                                @else--}}
+{{--                                    <img src="{{url('images/')}}" class="img-fluid" style="max-width:80px" alt="avatar.png">--}}
+{{--                                @endif--}}
+{{--                            </td>--}}
                             <td class="center">{{$book->price}}</td>
                             <td class="center">{{$book->quantity}}</td>
 

@@ -212,6 +212,29 @@ to get the desired effect
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link">
+                            <i class=""></i>
+                            <p>
+                                Нарачки
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{URL::to('/add-order')}}" class="nav-link">
+                                    <i class="nav-icon fas fa-edit"></i>
+                                    <p>Додади Достава</p><span class="right badge badge-danger" style="margin-right: -16px">Додади</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{URL::to('/all-order')}}" class="nav-link">
+                                    <i class="far fa-list-alt nav-icon"></i>
+                                    <p>Види ги сите нарачки </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->

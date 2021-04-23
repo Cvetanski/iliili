@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -10,12 +9,20 @@ class Cart extends Model
     protected $table = 'cart';
 
     protected $fillable =[
-        'products_id',
-        'product_name',
-        'product_code',
         'price',
         'quantity',
-        'user_email',
-        'session_id'
+        'amount',
+        'book_id',
+        'order_id',
+        'user_id'
     ];
+
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'book_id');
+    }
+    public function order(){
+        return $this->belongsTo(Order::class,'order_id');
+    }
 }

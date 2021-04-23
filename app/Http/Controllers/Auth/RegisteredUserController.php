@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\User\UserWasRegistered;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -46,7 +47,9 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]));
 
-        event(new Registered($user));
+//        event(new Registered($user));
+
+        event(new UserWasRegistered($user));
 
         return redirect(RouteServiceProvider::HOME);
     }

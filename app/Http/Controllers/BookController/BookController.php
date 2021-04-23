@@ -1,17 +1,18 @@
 <?php
 
-
 namespace App\Http\Controllers\BookController;
-
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+
 
 class BookController extends Controller
 {
@@ -22,17 +23,12 @@ class BookController extends Controller
 
     public function saveBook(Request $request )
     {
-//        $book = new Book($request->all());
-//        $book->save();
-//
-//        return redirect()->route('admin.dashboard');
-
-        $this->validate($request,[
+        $request->validate([
             'title'=>'string|required',
             'short_description'=>'string|required',
             'year'=>'string|required',
             'quantity'=>'required|string',
-//            'file'=>'string|required',
+//          'file'=>'string|required',
             'price'=>'string|required',
             'translator'=>'string|required',
             'publication_status'=>'string|required',
@@ -43,7 +39,6 @@ class BookController extends Controller
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-
         $data=$request->all();
         $slug=Str::slug($request->title);
         $count=Book::where('slug', $slug)->count();
@@ -52,16 +47,71 @@ class BookController extends Controller
         }
         $data['slug']=$slug;
 
-        $status = Book::create($data);
-        if($status){
-            request()->session()->flash('success','Успешно додадовте книга!');
+        $request->photo->extension();
+        $newImageName = time() . ' - ' .$request->name . ' . ' .
+
+        $request->photo->extension();
+        $data['photo']=$newImageName;
+
+        $request->photo->move(public_path('images'), $newImageName);
+
+        $book = Book::create( $data);
+
+        if($book){
+        request()->session()->flash('success','Успешно додадовте книга!');
         }
         else{
-            request()->session()->flash('error','Ве молиме обидете се повтроно');
+        request()->session()->flash('error','Ве молиме обидете се повтроно');
         }
-        $request->photo->store('product', 'public');
 
         return redirect()->route('all-book')->with('message','Успешно додадовте книга!');
+
+
+
+
+
+//        $request->validate([
+//            'title'=>'string|required',
+//            'short_description'=>'string|required',
+//            'year'=>'string|required',
+//            'quantity'=>'required|string',
+////            'file'=>'string|required',
+//            'price'=>'string|required',
+//            'translator'=>'string|required',
+//            'slug'=>'string|required',
+//            'publication_status'=>'string|required',
+//            'category_id'=>'required|exists:categories,id',
+//            'origin_id'=>'required|exists:origin,id',
+//            'section_id'=>'required|exists:sections,id',
+//            'author_id'=>'required|exists:authors,id',
+//            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//        ]);
+//
+//        $newImageName = time() . ' - ' .$request->name . ' . ' .
+//            $request->photo->extension();
+//
+//       $request->photo->move(public_path('images'), $newImageName);
+//
+//       $book = Book::create([
+//           'title' => $request->input('title'),
+//           'short_description' => $request->input('short_description'),
+//           'year' => $request->input('year'),
+//           'quantity' => $request->input('quantity'),
+//           //            'file'=>'string|required',
+//           'price' => $request->input('price'),
+//           'slug' => $request->input('slug'),
+//           'translator' => $request->input('translator'),
+//           'publication_status' => $request->input('publication_status'),
+//           'category_id' => $request->input('category_id'),
+//           'origin_id' => $request->input('origin_id'),
+//           'section_id' => $request->input('section_id'),
+//           'author_id' => $request->input('author_id'),
+//           'photo' => $newImageName
+//       ]);
+//
+//        $book->save();
+//
+//        return redirect()->route('all-book')->with('message','Успешно додадовте книга!');
     }
 
     public function allBook()
@@ -107,13 +157,13 @@ class BookController extends Controller
 
     public function editBook(int $id)
     {
-//        $bookInfo=DB::table('books')
-//            ->where('id', $id)
-//            ->first();
-//        $bookInfo=view('admin.edit_book')
-//            ->with('bookInfo',$bookInfo);
-//        return view('admin.admin_layout')
-//            ->with('admin.edit_book',$bookInfo);
+        $bookInfo=DB::table('books')
+            ->where('id', $id)
+            ->first();
+        $bookInfo=view('admin.edit_book')
+            ->with('bookInfo',$bookInfo);
+        return view('admin.admin_layout')
+            ->with('admin.edit_book',$bookInfo);
 
         $bookInfo = Book::findOrFail($id);
         $category = Category::where('category')->get();

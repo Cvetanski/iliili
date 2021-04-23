@@ -39,4 +39,9 @@ class  Book extends Model
         return Book::with(['category_id'])->orderBy('id','desc')->paginate(10);
     }
 
+    public function carts()
+    {
+        return $this->hasMany(Cart::class)->whereNotNull('order_id');
+    }
+
 }

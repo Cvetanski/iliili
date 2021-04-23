@@ -34,4 +34,9 @@ class Category extends Model
         $this->setAttribute($category, 'category');
     }
 
+    public static function getAllParentWithChild()
+    {
+        return Category::with('child_cat')->where('is_parent',1)->where('status','active')->orderBy('title','ASC')->get();
+    }
+
 }

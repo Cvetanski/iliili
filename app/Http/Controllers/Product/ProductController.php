@@ -16,4 +16,5 @@ class ProductController extends Controller
         $relateProducts=Book::where([['id','!=',$id],['categories_id',$detail_product->categories_id]])->get();
         return view('frontend.product_details',compact('detail_product','imagesGalleries','totalStock','relateProducts'));
     }
+
 }
